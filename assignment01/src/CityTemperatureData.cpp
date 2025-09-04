@@ -44,6 +44,8 @@ namespace csi281 {
   // Find the right CityYear in the array and return it
   const CityYear CityTemperatureData::operator[](const int year) const {
     // YOUR CODE HERE
+    //string stream and/or fstream to read the files from tempdata.csv
+    // I want to have an input so we can actually just look up the year and 
   }
 
   // Get the average (mean) temperature of all time for this city
