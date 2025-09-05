@@ -27,6 +27,8 @@
 
 #include "CityTemperatureData.h"
 
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 namespace csi281 {
@@ -40,27 +42,51 @@ namespace csi281 {
     delete _data;
   }
 
+
   // Look up a CityYear instance held by CityTemperatureData by its year.
   // Find the right CityYear in the array and return it
   const CityYear CityTemperatureData::operator[](const int year) const {
     // YOUR CODE HERE
-    //string stream and/or fstream to read the files from tempdata.csv
-    // I want to have an input so we can actually just look up the year and 
+    // string stream and/or fstream to read the files from tempdata.csv
+    // I want to have an input so we can actually just query the data and display it out
+    // make a sring stream and read the data from the file
+
+    for (int i = 0; i < _count; i++) {
+      if (_data[i].year == year) {
+        return _data[i];
+      }
+    }
+    return _data[0]; // placeholder to get it to compile
   }
 
   // Get the average (mean) temperature of all time for this city
   // by averaging every CityYear.
   float CityTemperatureData::getAllTimeAverage() const {
     // YOUR CODE HERE
+
+    float sum = 0.0f;
+    for (int i = 0; i < _count; i++) {
+      sum += _data[i].averageTemperature;
+    }
+    return (_count > 0) ? (sum / _count) : 0.0f;
   }
 
   // Sum all of the days below 32 for all years.
   int CityTemperatureData::getTotalDaysBelow32() const {
     // YOUR CODE HERE
+    int total = 0;
+    for (int i = 0; i < _count; i++) {
+      total += _data[i].numDaysBelow32;
   }
-
+    return total;
+}
   // Sum all of the days above 90 for all years.
   int CityTemperatureData::getTotalDaysAbove90() const {
     // YOUR CODE HERE
+    int total = 0;
+    for (int i = 0; i < _count; i++) {
+      total += _data[i].numDaysAbove90;
   }
-}  // namespace csi281
+    return total;
+}  //namespace csi281
+}

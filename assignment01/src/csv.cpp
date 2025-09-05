@@ -75,6 +75,7 @@ namespace csi281 {
   // You'll also want to construct a CityYear from what you have read from the file
   CityYear readLine(ifstream &file) {
     // YOUR CODE HERE
+    
   }
 
   // Read city by looking at the specified lines in the CSV
