@@ -75,7 +75,12 @@ namespace csi281 {
   // You'll also want to construct a CityYear from what you have read from the file
   CityYear readLine(ifstream &file) {
     // YOUR CODE HERE
-    
+    string line;
+    getline(file,line);
+    istringstream iss (line);
+    CityYear temp_year;
+    line = readStringCell(iss);
+    line = readStringCell(iss);
   }
 
   // Read city by looking at the specified lines in the CSV
