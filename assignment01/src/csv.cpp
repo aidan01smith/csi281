@@ -76,11 +76,16 @@ namespace csi281 {
   CityYear readLine(ifstream &file) {
     // YOUR CODE HERE
     string line;
-    getline(file,line);
-    istringstream iss (line);
+    getline(file, line);
+    istringstream iss(line);
     CityYear temp_year;
-    line = readStringCell(iss);
-    line = readStringCell(iss);
+    temp_year.year = readIntCell(iss);
+    temp_year.numDaysBelow32 = readIntCell(iss);
+    temp_year.numDaysAbove90 = readIntCell(iss);
+    temp_year.averageTemperature = readFloatCell(iss);
+    temp_year.averageMax = readFloatCell(iss);
+    temp_year.averageMin = readFloatCell(iss);
+    return temp_year;
   }
 
   // Read city by looking at the specified lines in the CSV

@@ -30,8 +30,9 @@
 
 #include <string>
 
+/* 
 #include "MemoryLeakDetector.h"
-
+*/
 using namespace std;
 
 namespace csi281 {
