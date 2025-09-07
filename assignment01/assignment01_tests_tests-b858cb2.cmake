@@ -1,0 +1,5 @@
+add_test( [==[[New York] New York Test Data]==] /home/susan/Documents/csi281/assignment01/assignment01_tests [==[--test-case=[New York] New York Test Data]==])
+set_tests_properties( [==[[New York] New York Test Data]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment01 LABELS)
+add_test( [==[[Burlington] Burlington Test Data]==] /home/susan/Documents/csi281/assignment01/assignment01_tests [==[--test-case=[Burlington] Burlington Test Data]==])
+set_tests_properties( [==[[Burlington] Burlington Test Data]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment01 LABELS)
+set( assignment01_tests_TESTS [==[[New York] New York Test Data]==] [==[[Burlington] Burlington Test Data]==])

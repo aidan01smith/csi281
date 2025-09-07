@@ -78,6 +78,10 @@ namespace csi281 {
     string line;
     getline(file, line);
     istringstream iss(line);
+    
+    readStringCell(iss);
+    readStringCell(iss);
+
     CityYear temp_year;
     temp_year.year = readIntCell(iss);
     temp_year.numDaysBelow32 = readIntCell(iss);
@@ -98,5 +102,26 @@ namespace csi281 {
   // create an array of CityYear instances to pass to the CityTemperatureData constructor
   // when the CityTemperatureData is created, it will take ownership of the array
   CityTemperatureData* readCity(string cityName, string fileName, int startLine, int endLine) {
-  }
+  	ifstream file(fileName);
+	if (!file) {
+		throw runtime_error("could not run file"); 
+  	}
+
+	string line;
+	for (int i = 1; i < startLine + 1; i++) {
+		getline(file, line);
+	}
+	
+	int numYears = endLine - startLine + 1;
+	CityYear *data = new CityYear[numYears];
+
+	for (int i = 0; i < numYears && file.good(); i++) {
+		data[i] = readLine(file);
+	}
+
+	CityTemperatureData* city = new CityTemperatureData(cityName, data, numYears);
+
+	file.close();
+	return city;
+  }	
 }  // namespace csi281

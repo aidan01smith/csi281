@@ -1,4 +1,3 @@
-//
 //  main.cpp
 //
 //  The main file for assignment 1; tests the data processing by running

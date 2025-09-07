@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/assignment01.dir/src/CityTemperatureData.cpp.o CMakeFiles/assignment01.dir/src/csv.cpp.o CMakeFiles/assignment01.dir/src/main.cpp.o CMakeFiles/assignment01.dir/__/MLD/MemoryLeakDetector.cpp.o -o assignment01   -L/home/susan/Documents/csi281/lib  -Wl,-rpath,/home/susan/Documents/csi281/lib ../lib/libplotsvg.a 
