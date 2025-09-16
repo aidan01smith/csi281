@@ -1,10 +1,21 @@
 Aidan Smith
 
-1.
+1. The tightest bound Big-O runtime of randomIntArray() is O(N).
+Explanation: The function allocates an array of size N and fills each element in a single loop, so the runtime grows linearly with the length of the array.
 
-2.
+2. The tightest bound Big-O runtime of arraySearchSpeed() is O(N log N + T*N).
+Explanation: It generates arrays (O(N)), and for binary search, it would need to sort the array (O(N log N)), then perform T searches (each O(log N) for binary, O(N) for linear). The dominant term is O(N log N) for sorting and O(T*N) for linear search if T is large.
 
-3.
+3. Let S = number of searches.
+Linear search: Each search = 5 * 10,000 instructions. For S searches: 5 * 10,000 * S.
+Binary search: Sorting = 12 * 10,000 * log2(10,000) ≈ 12 * 10,000 * 13.29 ≈ 1,594,800 instructions. Each search = 10 * log2(10,000) ≈ 10 * 13.29 ≈ 133 instructions. For S searches: 1,594,800 + 133 * S.
+Set equal: 5 * 10,000 * S = 1,594,800 + 133 * S
+=> 50,000 * S - 133 * S = 1,594,800
+=> 49,867 * S = 1,594,800
+=> S ≈ 32
+Final answer: 32
 
-4.
-
+4. Three alternative C++ constructs that could have been used instead of pair as the return type:
+- A struct with two fields (e.g., struct SearchSpeeds { nanoseconds linear; nanoseconds binary; };)
+- A tuple (e.g., std::tuple<nanoseconds, nanoseconds>)
+- An array (e.g., nanoseconds speeds[2];)

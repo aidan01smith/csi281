@@ -39,8 +39,8 @@ set(MLD_SRC ${CMAKE_CURRENT_SOURCE_DIR}/MLD/MemoryLeakDetector.cpp)
 # todo for tolsta: make this simpler
 # todo for the students: enable / disable assignments at your will
 # add_subdirectory(assignment01)
-add_subdirectory(assignment02)
-# add_subdirectory(assignment03)
+# add_subdirectory(assignment02)
+add_subdirectory(assignment03)
 # add_subdirectory(assignment04)
 # add_subdirectory(assignment05)
 # add_subdirectory(assignment06)
