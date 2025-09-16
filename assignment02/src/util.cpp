@@ -42,6 +42,14 @@ namespace csi281 {
   // Suggest using the facilities in STL <random>
   int *randomIntArray(const int length, const int min, const int max) {
     // YOUR CODE HERE
+
+    int *array = new int[length];
+    int range = max - min + 1;
+
+    for (int i = 0; i < length; i++) {
+      array[i] = rand() % range + min;
+    }
+    return array;
   }
 
   // Finds the speed of linear versus binary search
@@ -69,11 +77,22 @@ namespace csi281 {
     // Put the result in a variable linearSearchSpeed
 
     // YOUR CODE HERE
+    nanoseconds linearSearchSpeed = nanoseconds(0);
+    nanoseconds binarySearchSpeed = nanoseconds(0);
+
 
     // Do numTests binary searches and find the average time
     // Put the result in a variable binarySearchSpeed
 
     // YOUR CODE HERE
+
+    for (int i = 0; i < numTests; i++) {
+      auto start = duration_cast<nanoseconds>(system_clock::now().time_since_epoch());
+      linearSearch(testArray, length, testKeys[i]);
+      auto end = duration_cast<nanoseconds>(system_clock::now().time_since_epoch());
+      linearSearchSpeed += end - start;
+    }
+    linearSearchSpeed /= numTests;
 
     delete testArray;
     delete testKeys;
