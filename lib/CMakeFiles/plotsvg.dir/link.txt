@@ -1,0 +1,2 @@
+/usr/bin/ar qc libplotsvg.a CMakeFiles/plotsvg.dir/PPlot.cpp.o CMakeFiles/plotsvg.dir/SVGPainter.cpp.o
+/usr/bin/ranlib libplotsvg.a
