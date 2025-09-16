@@ -19,7 +19,7 @@ target_link_libraries(${ProjectId} plotsvg)
 target_link_libraries(${ProjectId}_tests plotsvg)
 
 # add tests
-doctest_discover_tests(${ProjectId}_tests) # todo: do we need this?
+# doctest_discover_tests(${ProjectId}_tests) # todo: do we need this?
 
 # include directories
 target_include_directories(${ProjectId} PUBLIC src)
