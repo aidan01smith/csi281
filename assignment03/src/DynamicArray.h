@@ -54,11 +54,20 @@ namespace csi281 {
     // Return -1 if it is not found>
     int find(const T &item) {
       // YOUR CODE HERE
+      for (int i = 0; i < count; i++) {
+        if (backingStore[i] == item) {
+          return i;
+        }
+      }
+      return -1;
     }
 
     // Get the item at a particular index
     T &get(int index) {
       // YOUR CODE HERE
+      assert (index < count);
+      assert (index >= 0);
+      return backingStore[index];
     }
 
     // Insert at the beginning of the collection
@@ -67,6 +76,13 @@ namespace csi281 {
     // Hint: May want to use moveDownFrom()
     void insertAtBeginning(const T &item) {
       // YOUR CODE HERE
+
+      if (count == capacity) {
+        setCapacity(capacity * growthFactor);
+      }
+      moveDownFrom(0);
+      backingStore[0] = item;
+      count++;
     }
 
     // Insert at the end of the collection
@@ -74,6 +90,12 @@ namespace csi281 {
     // inserting
     void insertAtEnd(const T &item) {
       // YOUR CODE HERE
+
+      if (count == capacity) {
+        setCapacity(capacity * growthFactor);
+      }
+      backingStore[count] = item;
+      count++;
     }
 
     // Insert at a specific index
@@ -87,12 +109,19 @@ namespace csi281 {
     // Remove the item at the beginning of the collection
     void removeAtBeginning() {
       // YOUR CODE HERE
+      assert(count > 0);
+      move(backingStore + 1, backingStore + count, backingStore);
+      count--;
     }
 
     // Remove the item at the end of the collection
     // Hint: This might be very simple.
     void removeAtEnd() {
       // YOUR CODE HERE
+
+      assert(count > 0);
+      count--;
+
     }
 
     // Remove the item at a specific index
@@ -100,6 +129,10 @@ namespace csi281 {
     // down and removing the starting beginning element
     void removeAt(int index) {
       // YOUR CODE HERE
+      assert(index < count);
+      assert(index >= 0);
+      move(backingStore + index + 1, backingStore + count, backingStore + index);
+      count--;
     }
 
     // Change the capacity of the dynamic array

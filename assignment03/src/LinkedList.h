@@ -54,24 +54,59 @@ namespace csi281 {
     // Return -1 if it is not found
     int find(const T &item) {
       // YOUR CODE HERE
+      
+      int index = 0;
+      for (Node * current = head; current != nullptr; current = current->next) {
+        if (current->data == item) {
+          return index;
+        }
+        index++;
+
+      }
     }
 
     // Get the item at a particular index
     T &get(int index) {
       assert(index < count);  // can't insert off end
       assert(index >= 0);     // no negative indices
-                              // YOUR CODE HERE
-    }
+      // YOUR CODE HERE
+      int location = 0;
+      for (Node *current = head; current != nullptr; current = current->next) {
+        if (location == index) {
+          return current->data;
+        }
+        location++;
+        }
+      }
 
     // Insert at the beginning of the collection
     void insertAtBeginning(const T &item) {
       // YOUR CODE HERE
+      Node *newNode = new Node(item);
+      if (head == nullptr) {
+        head = newNode;
+        tail = newNode;
+      } else {
+        newNode->next = head;
+        head = newNode;
+      }
+      count++;
     }
 
     // Insert at the end of the collection
     void insertAtEnd(const T &item) {
       // YOUR CODE HERE
+      Node *newNode = new Node(item);
+      if (tail != nullptr) {
+        tail->next = newNode;
+        tail = newNode;
+      } else {
+        head = newNode;
+        tail = newNode;
+      }
+      count++;
     }
+
 
     // Insert at a specific index
     void insert(const T &item, int index) {
@@ -103,12 +138,27 @@ namespace csi281 {
     void removeAtBeginning() {
       assert(count > 0);
       // YOUR CODE HERE
+
+      Node *oldHead = head;
+      head = head->next;
+      delete oldHead;
+      count--;
+      if (count == 0) {
+        tail = nullptr;
+      }
     }
 
     // Remove the item at the end of the collection
     void removeAtEnd() {
       assert(count > 0);
       // YOUR CODE HERE
+      if (count == 1) {
+        delete head;
+        head = nullptr;
+        tail = nullptr;
+        count--;
+        return;
+      }
     }
 
     // Remove the item at a specific index
