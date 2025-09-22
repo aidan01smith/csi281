@@ -1,0 +1,5 @@
+add_test( [==[[LL] Linked List]==] /home/susan/Documents/csi281/assignment03/assignment03_tests [==[--test-case=[LL] Linked List]==])
+set_tests_properties( [==[[LL] Linked List]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment03 LABELS)
+add_test( [==[[DA] Dynamic Array]==] /home/susan/Documents/csi281/assignment03/assignment03_tests [==[--test-case=[DA] Dynamic Array]==])
+set_tests_properties( [==[[DA] Dynamic Array]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment03 LABELS)
+set( assignment03_tests_TESTS [==[[LL] Linked List]==] [==[[DA] Dynamic Array]==])

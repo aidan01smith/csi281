@@ -28,6 +28,8 @@
 #ifndef dynamicarray_hpp
 #define dynamicarray_hpp
 
+#include <cassert>
+
 #include <algorithm>  // for copy(), min(), move_backward
                       // for assert()
 
@@ -104,6 +106,12 @@ namespace csi281 {
     // Hint: May want to use moveDownFrom()
     void insert(const T &item, int index) {
       // YOUR CODE HERE
+
+      index = index == -1? count : index;
+
+      if (count < index) {
+        setCapacity(capacity * growthFactor);
+      }
     }
 
     // Remove the item at the beginning of the collection
@@ -112,6 +120,7 @@ namespace csi281 {
       assert(count > 0);
       move(backingStore + 1, backingStore + count, backingStore);
       count--;
+
     }
 
     // Remove the item at the end of the collection
@@ -121,7 +130,6 @@ namespace csi281 {
 
       assert(count > 0);
       count--;
-
     }
 
     // Remove the item at a specific index
@@ -129,6 +137,7 @@ namespace csi281 {
     // down and removing the starting beginning element
     void removeAt(int index) {
       // YOUR CODE HERE
+      
       assert(index < count);
       assert(index >= 0);
       move(backingStore + index + 1, backingStore + count, backingStore + index);

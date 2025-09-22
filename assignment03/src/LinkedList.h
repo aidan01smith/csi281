@@ -61,8 +61,8 @@ namespace csi281 {
           return index;
         }
         index++;
-
       }
+      return -1;
     }
 
     // Get the item at a particular index
@@ -72,12 +72,15 @@ namespace csi281 {
       // YOUR CODE HERE
       int location = 0;
       for (Node *current = head; current != nullptr; current = current->next) {
-        if (location == index) {
+        if (index == 0) {
           return current->data;
         }
-        location++;
-        }
+
+        index--;
       }
+      
+      throw out_of_range("index is out of range");
+    }    
 
     // Insert at the beginning of the collection
     void insertAtBeginning(const T &item) {

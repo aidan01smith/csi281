@@ -1,0 +1,5 @@
+if(EXISTS "/home/susan/Documents/csi281/assignment03/assignment03_tests_tests-b858cb2.cmake")
+  include("/home/susan/Documents/csi281/assignment03/assignment03_tests_tests-b858cb2.cmake")
+else()
+  add_test(assignment03_tests_NOT_BUILT-b858cb2 assignment03_tests_NOT_BUILT-b858cb2)
+endif()
