@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/assignment04.dir/src/main.cpp.o CMakeFiles/assignment04.dir/__/MLD/MemoryLeakDetector.cpp.o -o assignment04   -L/home/susan/Documents/csi281/lib  -Wl,-rpath,/home/susan/Documents/csi281/lib ../lib/libplotsvg.a 

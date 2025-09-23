@@ -64,19 +64,19 @@ CMAKE_BINARY_DIR = /home/susan/Documents/csi281
 
 # The main recursive "all" target.
 all: lib/all
-all: assignment03/all
+all: assignment04/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: lib/preinstall
-preinstall: assignment03/preinstall
+preinstall: assignment04/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: _deps/doctest-build/clean
 clean: _deps/format.cmake-build/clean
 clean: lib/clean
-clean: assignment03/clean
+clean: assignment04/clean
 .PHONY : clean
 
 #=============================================================================
@@ -118,21 +118,21 @@ _deps/format.cmake-build/clean: _deps/format.cmake-build/CMakeFiles/fix-format.d
 .PHONY : _deps/format.cmake-build/clean
 
 #=============================================================================
-# Directory level rules for directory assignment03
+# Directory level rules for directory assignment04
 
 # Recursive "all" directory target.
-assignment03/all: assignment03/CMakeFiles/assignment03.dir/all
-assignment03/all: assignment03/CMakeFiles/assignment03_tests.dir/all
-.PHONY : assignment03/all
+assignment04/all: assignment04/CMakeFiles/assignment04.dir/all
+assignment04/all: assignment04/CMakeFiles/assignment04_tests.dir/all
+.PHONY : assignment04/all
 
 # Recursive "preinstall" directory target.
-assignment03/preinstall:
-.PHONY : assignment03/preinstall
+assignment04/preinstall:
+.PHONY : assignment04/preinstall
 
 # Recursive "clean" directory target.
-assignment03/clean: assignment03/CMakeFiles/assignment03.dir/clean
-assignment03/clean: assignment03/CMakeFiles/assignment03_tests.dir/clean
-.PHONY : assignment03/clean
+assignment04/clean: assignment04/CMakeFiles/assignment04.dir/clean
+assignment04/clean: assignment04/CMakeFiles/assignment04_tests.dir/clean
+.PHONY : assignment04/clean
 
 #=============================================================================
 # Directory level rules for directory lib
@@ -439,56 +439,56 @@ lib/CMakeFiles/plotsvg.dir/clean:
 .PHONY : lib/CMakeFiles/plotsvg.dir/clean
 
 #=============================================================================
-# Target rules for target assignment03/CMakeFiles/assignment03.dir
+# Target rules for target assignment04/CMakeFiles/assignment04.dir
 
 # All Build rule for target.
-assignment03/CMakeFiles/assignment03.dir/all: lib/CMakeFiles/plotsvg.dir/all
-	$(MAKE) $(MAKESILENT) -f assignment03/CMakeFiles/assignment03.dir/build.make assignment03/CMakeFiles/assignment03.dir/depend
-	$(MAKE) $(MAKESILENT) -f assignment03/CMakeFiles/assignment03.dir/build.make assignment03/CMakeFiles/assignment03.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/susan/Documents/csi281/CMakeFiles --progress-num=1,2,3 "Built target assignment03"
-.PHONY : assignment03/CMakeFiles/assignment03.dir/all
+assignment04/CMakeFiles/assignment04.dir/all: lib/CMakeFiles/plotsvg.dir/all
+	$(MAKE) $(MAKESILENT) -f assignment04/CMakeFiles/assignment04.dir/build.make assignment04/CMakeFiles/assignment04.dir/depend
+	$(MAKE) $(MAKESILENT) -f assignment04/CMakeFiles/assignment04.dir/build.make assignment04/CMakeFiles/assignment04.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/susan/Documents/csi281/CMakeFiles --progress-num=1,2,3 "Built target assignment04"
+.PHONY : assignment04/CMakeFiles/assignment04.dir/all
 
 # Build rule for subdir invocation for target.
-assignment03/CMakeFiles/assignment03.dir/rule: cmake_check_build_system
+assignment04/CMakeFiles/assignment04.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/susan/Documents/csi281/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment03/CMakeFiles/assignment03.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment04/CMakeFiles/assignment04.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/susan/Documents/csi281/CMakeFiles 0
-.PHONY : assignment03/CMakeFiles/assignment03.dir/rule
+.PHONY : assignment04/CMakeFiles/assignment04.dir/rule
 
 # Convenience name for target.
-assignment03: assignment03/CMakeFiles/assignment03.dir/rule
-.PHONY : assignment03
+assignment04: assignment04/CMakeFiles/assignment04.dir/rule
+.PHONY : assignment04
 
 # clean rule for target.
-assignment03/CMakeFiles/assignment03.dir/clean:
-	$(MAKE) $(MAKESILENT) -f assignment03/CMakeFiles/assignment03.dir/build.make assignment03/CMakeFiles/assignment03.dir/clean
-.PHONY : assignment03/CMakeFiles/assignment03.dir/clean
+assignment04/CMakeFiles/assignment04.dir/clean:
+	$(MAKE) $(MAKESILENT) -f assignment04/CMakeFiles/assignment04.dir/build.make assignment04/CMakeFiles/assignment04.dir/clean
+.PHONY : assignment04/CMakeFiles/assignment04.dir/clean
 
 #=============================================================================
-# Target rules for target assignment03/CMakeFiles/assignment03_tests.dir
+# Target rules for target assignment04/CMakeFiles/assignment04_tests.dir
 
 # All Build rule for target.
-assignment03/CMakeFiles/assignment03_tests.dir/all: lib/CMakeFiles/plotsvg.dir/all
-	$(MAKE) $(MAKESILENT) -f assignment03/CMakeFiles/assignment03_tests.dir/build.make assignment03/CMakeFiles/assignment03_tests.dir/depend
-	$(MAKE) $(MAKESILENT) -f assignment03/CMakeFiles/assignment03_tests.dir/build.make assignment03/CMakeFiles/assignment03_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/susan/Documents/csi281/CMakeFiles --progress-num=4,5,6 "Built target assignment03_tests"
-.PHONY : assignment03/CMakeFiles/assignment03_tests.dir/all
+assignment04/CMakeFiles/assignment04_tests.dir/all: lib/CMakeFiles/plotsvg.dir/all
+	$(MAKE) $(MAKESILENT) -f assignment04/CMakeFiles/assignment04_tests.dir/build.make assignment04/CMakeFiles/assignment04_tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f assignment04/CMakeFiles/assignment04_tests.dir/build.make assignment04/CMakeFiles/assignment04_tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/susan/Documents/csi281/CMakeFiles --progress-num=4,5,6 "Built target assignment04_tests"
+.PHONY : assignment04/CMakeFiles/assignment04_tests.dir/all
 
 # Build rule for subdir invocation for target.
-assignment03/CMakeFiles/assignment03_tests.dir/rule: cmake_check_build_system
+assignment04/CMakeFiles/assignment04_tests.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/susan/Documents/csi281/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment03/CMakeFiles/assignment03_tests.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment04/CMakeFiles/assignment04_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/susan/Documents/csi281/CMakeFiles 0
-.PHONY : assignment03/CMakeFiles/assignment03_tests.dir/rule
+.PHONY : assignment04/CMakeFiles/assignment04_tests.dir/rule
 
 # Convenience name for target.
-assignment03_tests: assignment03/CMakeFiles/assignment03_tests.dir/rule
-.PHONY : assignment03_tests
+assignment04_tests: assignment04/CMakeFiles/assignment04_tests.dir/rule
+.PHONY : assignment04_tests
 
 # clean rule for target.
-assignment03/CMakeFiles/assignment03_tests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f assignment03/CMakeFiles/assignment03_tests.dir/build.make assignment03/CMakeFiles/assignment03_tests.dir/clean
-.PHONY : assignment03/CMakeFiles/assignment03_tests.dir/clean
+assignment04/CMakeFiles/assignment04_tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f assignment04/CMakeFiles/assignment04_tests.dir/build.make assignment04/CMakeFiles/assignment04_tests.dir/clean
+.PHONY : assignment04/CMakeFiles/assignment04_tests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
