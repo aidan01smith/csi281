@@ -49,7 +49,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/susan/Documents/csi281/assignment02/cmake_install.cmake")
+  include("/home/susan/Documents/csi281/assignment03/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

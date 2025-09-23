@@ -69,14 +69,15 @@ namespace csi281 {
     T &get(int index) {
       assert(index < count);  // can't insert off end
       assert(index >= 0);     // no negative indices
-      // YOUR CODE HERE
+      
+      
       int location = 0;
       for (Node *current = head; current != nullptr; current = current->next) {
-        if (index == 0) {
+        if (location == index) {
           return current->data;
         }
 
-        index--;
+        location++;
       }
       
       throw out_of_range("index is out of range");

@@ -167,4 +167,7 @@ static void drawSearchChart() {
 int main(int argc, char *argv[]) {
   // draw chart
   drawSearchChart();
+
 }
+
+

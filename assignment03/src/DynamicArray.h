@@ -67,8 +67,6 @@ namespace csi281 {
     // Get the item at a particular index
     T &get(int index) {
       // YOUR CODE HERE
-      assert (index < count);
-      assert (index >= 0);
       return backingStore[index];
     }
 
@@ -107,11 +105,14 @@ namespace csi281 {
     void insert(const T &item, int index) {
       // YOUR CODE HERE
 
-      index = index == -1? count : index;
-
-      if (count < index) {
+      assert(index >= 0 && index <= count);
+      if (count == capacity) {
         setCapacity(capacity * growthFactor);
       }
+
+      moveDownFrom(index);
+      backingStore[index] = item;
+      count++;
     }
 
     // Remove the item at the beginning of the collection
