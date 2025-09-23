@@ -1,0 +1,121 @@
+Start testing: Sep 22 21:15 EDT
+----------------------------------------------------------
+1/2 Testing: [LL] Linked List
+1/2 Test: [LL] Linked List
+Command: "/home/susan/Documents/csi281/assignment03/assignment03_tests" "--test-case=[LL] Linked List"
+Directory: /home/susan/Documents/csi281/assignment03
+"[LL] Linked List" start time: Sep 22 21:15 EDT
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/home/susan/Documents/csi281/assignment03/src/test.cpp:53:
+TEST CASE:  [LL] Linked List
+  int Test
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:74: ERROR: CHECK( ll.getCount() == 104 ) is NOT correct!
+  values: CHECK( 105 == 104 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:80: ERROR: CHECK( ll.getCount() == 103 ) is NOT correct!
+  values: CHECK( 104 == 103 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:85: ERROR: CHECK( ll.getCount() == 105 ) is NOT correct!
+  values: CHECK( 106 == 105 )
+
+===============================================================================
+/home/susan/Documents/csi281/assignment03/src/test.cpp:53:
+TEST CASE:  [LL] Linked List
+  string test
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:109: ERROR: CHECK( ll.getCount() == 104 ) is NOT correct!
+  values: CHECK( 105 == 104 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:115: ERROR: CHECK( ll.getCount() == 103 ) is NOT correct!
+  values: CHECK( 104 == 103 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:120: ERROR: CHECK( ll.getCount() == 105 ) is NOT correct!
+  values: CHECK( 106 == 105 )
+
+===============================================================================
+/home/susan/Documents/csi281/assignment03/src/test.cpp:53:
+TEST CASE:  [LL] Linked List
+  Person test
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:144: ERROR: CHECK( ll.getCount() == 100 ) is NOT correct!
+  values: CHECK( 101 == 100 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:151: ERROR: CHECK( ll.getCount() == 99 ) is NOT correct!
+  values: CHECK( 100 == 99 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:156: ERROR: CHECK( ll.getCount() == 101 ) is NOT correct!
+  values: CHECK( 102 == 101 )
+
+===============================================================================
+[doctest] test cases:  1 |  0 passed | 1 failed | 1 skipped
+[doctest] assertions: 58 | 49 passed | 9 failed |
+[doctest] Status: FAILURE!
+TRACK: leaked at 0x5e3d541d62b0, 72 bytes
+TRACK: leaked at 0x5e3d541d6380, 72 bytes
+TRACK: leaked at 0x5e3d541d6410, 72 bytes
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"[LL] Linked List" end time: Sep 22 21:15 EDT
+"[LL] Linked List" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: [DA] Dynamic Array
+2/2 Test: [DA] Dynamic Array
+Command: "/home/susan/Documents/csi281/assignment03/assignment03_tests" "--test-case=[DA] Dynamic Array"
+Directory: /home/susan/Documents/csi281/assignment03
+"[DA] Dynamic Array" start time: Sep 22 21:15 EDT
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/home/susan/Documents/csi281/assignment03/src/test.cpp:161:
+TEST CASE:  [DA] Dynamic Array
+  string test
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:217: ERROR: CHECK( da.getCount() == 104 ) is NOT correct!
+  values: CHECK( 105 == 104 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:223: ERROR: CHECK( da.getCount() == 103 ) is NOT correct!
+  values: CHECK( 104 == 103 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:228: ERROR: CHECK( da.getCount() == 105 ) is NOT correct!
+  values: CHECK( 106 == 105 )
+
+===============================================================================
+/home/susan/Documents/csi281/assignment03/src/test.cpp:161:
+TEST CASE:  [DA] Dynamic Array
+  Person test
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:252: ERROR: CHECK( da.getCount() == 100 ) is NOT correct!
+  values: CHECK( 101 == 100 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:259: ERROR: CHECK( da.getCount() == 99 ) is NOT correct!
+  values: CHECK( 100 == 99 )
+
+/home/susan/Documents/csi281/assignment03/src/test.cpp:264: ERROR: CHECK( da.getCount() == 101 ) is NOT correct!
+  values: CHECK( 102 == 101 )
+
+===============================================================================
+[doctest] test cases:  1 |  0 passed | 1 failed | 1 skipped
+[doctest] assertions: 64 | 58 passed | 6 failed |
+[doctest] Status: FAILURE!
+TRACK: leaked at 0x5c360bc482b0, 72 bytes
+TRACK: leaked at 0x5c360bc48380, 72 bytes
+TRACK: leaked at 0x5c360bc48410, 72 bytes
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"[DA] Dynamic Array" end time: Sep 22 21:15 EDT
+"[DA] Dynamic Array" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 22 21:15 EDT

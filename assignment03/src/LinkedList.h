@@ -69,18 +69,16 @@ namespace csi281 {
     T &get(int index) {
       assert(index < count);  // can't insert off end
       assert(index >= 0);     // no negative indices
-      
-      
-      int location = 0;
-      for (Node *current = head; current != nullptr; current = current->next) {
-        if (location == index) {
-          return current->data;
-        }
 
-        location++;
-      }
+      int location = 0;
+        for (Node *current = head; current != nullptr; current = current->next) {
+          if (location == index) {
+            return current->data;
+          }
+      location++;
+        }
+    throw out_of_range("index is out of range");
       
-      throw out_of_range("index is out of range");
     }    
 
     // Insert at the beginning of the collection
@@ -116,26 +114,32 @@ namespace csi281 {
     void insert(const T &item, int index) {
       assert(index <= count);  // can't insert off end
       assert(index >= 0);      // no negative indices
+      
       if (index == 0) {
         insertAtBeginning(item);
         return;
       }
+
+
       if (index == count) {
         insertAtEnd(item);
         return;
       }
+
       int location = 0;
-      for (Node *current = head; current != nullptr; current = current->next) {
-        if (location == (index - 1)) {
-          Node *after = current->next;
-          Node *thing = new Node(item);
-          current->next = thing;
-          thing->next = after;
-          count++;
-          return;
-        }
+      
+      Node *prev = nullptr;
+      Node *current = head;
+      while (current != nullptr && location < index) {
+        prev = current;
+        current = current->next;
         location++;
       }
+      
+      Node *newNode = new Node(item);
+      prev->next = newNode;
+      newNode->next = current;
+      count++;
     }
 
     // Remove the item at the beginning of the collection
@@ -155,7 +159,7 @@ namespace csi281 {
     // Remove the item at the end of the collection
     void removeAtEnd() {
       assert(count > 0);
-      // YOUR CODE HERE
+      
       if (count == 1) {
         delete head;
         head = nullptr;
@@ -163,6 +167,16 @@ namespace csi281 {
         count--;
         return;
       }
+      
+      Node *current = head;
+      while (current->next != tail) {
+        current = current->next;
+      }
+  
+      delete tail;
+      tail = current;
+      tail->next = nullptr;
+      count--;
     }
 
     // Remove the item at a specific index
@@ -170,26 +184,31 @@ namespace csi281 {
       assert(index >= 0);
       assert(index < count);
       assert(count > 0);
+  
+  
       if (index == 0) {
         removeAtBeginning();
         return;
       }
-      if (index == (count - 1)) {
+  
+      if (index == count - 1) {
         removeAtEnd();
         return;
       }
-
+  
       int location = 0;
-      for (Node *current = head; current != nullptr; current = current->next) {
-        if (location == (index - 1)) {
-          Node *after = current->next->next;
-          delete (current->next);
-          current->next = after;
-          count--;
-          return;
-        }
+      Node *prev = nullptr;
+      Node *current = head;
+      
+      while (current != nullptr && location < index) {
+        prev = current;
+        current = current->next;
         location++;
       }
+      
+      prev->next = current->next;
+      delete current;
+      count--;
     }
 
   protected:
