@@ -70,7 +70,7 @@ namespace csi281 {
       
       // using geeksforgeeks.org as a reference, we assume the current possition
       // holds the minimum element
-      int minimunIndex = 1;
+      int minimunIndex = i;
 
       // we then have to go through all the data
       for (int j = i + 1; j < length; j++) {
@@ -97,19 +97,19 @@ namespace csi281 {
     
     for (int i = 1; i < length; i++) {
 
-      T k = array[i]; //suplemented as the key
+      T key = array[i]; //suplemented as the key
 
       int j = i - 1;
     
     // move the greater positions to one ahead of their current position
 
-      while (j >= 0 && array[j] > k) {
+      while (j >= 0 && array[j] > key) {
 
         array[j + 1] = array[j];
         j = j - 1;
       }
 
-      array[j + 1] = k;
+      array[j + 1] = key;
     }
 
   }
