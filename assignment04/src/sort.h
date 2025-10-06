@@ -29,6 +29,7 @@
 #define sort_hpp
 
 #include <algorithm>  // for swap()
+#include <vector> // for sort() --> used for testing purposes but didn't actually end up implementing anything with it oops
 
 #include "MemoryLeakDetector.h"
 
@@ -39,55 +40,78 @@ namespace csi281 {
   // Performs an in-place ascending sort of *array* of size *length*
   // using the bubble sort algorithm
   template <typename T> void bubbleSort(T array[], const int length) {
-    
-    //making the bubble sort algorithm
+    // make and apply the bubble sort algorithm
+
     for (int i = 0; i < length - 1; i++) {
-      for (int j = 0; j < length - 1 - i; j++) {
-        
+
+      for (int j = 0; j < length - 1; j++) {
+
+
+        //parsing through the array and using swap to make sure the information is correct
+        // not using swapped becasue it seems a litte redundant in this instance with the template
         if (array[j] > array[j + 1]) {
+
           swap (array[j], array[j + 1]);
         
         }
       }
-    } 
 
+    }
   }
 
   // Performs an in-place ascending sort of *array* of size *length*
   // using the selection sort algorithm
   template <typename T> void selectionSort(T array[], const int length) {
     
-    //making the selection sort algorithm
+    // selection sort algroithm implementation
+    // same begining for loop as the bubble sort
 
     for (int i = 0; i < length - 1; i++) {
-      int minIndex = i;
-      for (int j = i + 1; j < length; j++) {
-        if (array[j] < array[minIndex]) {
-          minIndex = j;
+      
+      // using geeksforgeeks.org as a reference, we assume the current possition
+      // holds the minimum element
+      int minimunIndex = 1;
+
+      // we then have to go through all the data
+      for (int j = i + 1; j < n; j++) {
+
+        if (array[j] < array[minimunIndex]) {
+          minimunIndex = j;
         }
       }
-      if (minIndex != i) {
-        swap(array[i], array[minIndex]);
+
+      // this doesn't pass the tests without the if statement for some reason lol
+      if (minimunIndex != i) {
+        swap (array[i], array[minimunIndex]);
       }
+
     }
+
   }
 
   // Performs an in-place ascending sort of *array* of size *length*
   // using the insertion sort algorithm
   template <typename T> void insertionSort(T array[], const int length) {
-    //making the insertion sort algorithm
-    for (int i = 1; i < length; i++) {
-      
-      T key = array[i];
-      
+    
+    // last sorting algorithm is the insertion sort algorithm 
+    
+    for (int i = 1; i < n; i++) {
+
+      T k = array[i]; //suplemented as the key
+
       int j = i - 1;
-      while (j >= 0 && array[j] > key) {
+    
+    // move the greater positions to one ahead of their current position
+
+      while (j >= 0 && arr[j] > k) {
+
         array[j + 1] = array[j];
         j = j - 1;
-      
       }
-      array[j + 1] = key;
+
+      array[j + 1] = k;
     }
+
   }
 }  // namespace csi281
 
