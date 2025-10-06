@@ -73,7 +73,7 @@ namespace csi281 {
       int minimunIndex = 1;
 
       // we then have to go through all the data
-      for (int j = i + 1; j < n; j++) {
+      for (int j = i + 1; j < length; j++) {
 
         if (array[j] < array[minimunIndex]) {
           minimunIndex = j;
@@ -95,7 +95,7 @@ namespace csi281 {
     
     // last sorting algorithm is the insertion sort algorithm 
     
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < length; i++) {
 
       T k = array[i]; //suplemented as the key
 
@@ -103,7 +103,7 @@ namespace csi281 {
     
     // move the greater positions to one ahead of their current position
 
-      while (j >= 0 && arr[j] > k) {
+      while (j >= 0 && array[j] > k) {
 
         array[j + 1] = array[j];
         j = j - 1;
