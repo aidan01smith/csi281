@@ -15,7 +15,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "_deps/doctest-src/scripts/cmake/Config.cmake.in"
   "_deps/doctest-src/scripts/cmake/doctest.cmake"
   "_deps/format.cmake-src/CMakeLists.txt"
-  "assignment04/CMakeLists.txt"
+  "assignment05/CMakeLists.txt"
   "cmake/CPM_0.38.7.cmake"
   "cmake/compiler_check.cmake"
   "cmake/get_cpm.cmake"
@@ -68,7 +68,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "_deps/doctest-build/CMakeFiles/CMakeDirectoryInformation.cmake"
   "_deps/format.cmake-build/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "assignment04/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "assignment05/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -84,6 +84,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "_deps/format.cmake-build/CMakeFiles/check-format.dir/DependInfo.cmake"
   "_deps/format.cmake-build/CMakeFiles/fix-format.dir/DependInfo.cmake"
   "lib/CMakeFiles/plotsvg.dir/DependInfo.cmake"
-  "assignment04/CMakeFiles/assignment04.dir/DependInfo.cmake"
-  "assignment04/CMakeFiles/assignment04_tests.dir/DependInfo.cmake"
+  "assignment05/CMakeFiles/assignment05.dir/DependInfo.cmake"
+  "assignment05/CMakeFiles/assignment05_tests.dir/DependInfo.cmake"
   )
