@@ -1,0 +1,45 @@
+1. 
+
+bubble sort is slower that selection sort and insertion sort because of pultiple reasons.
+    1. the most basic answer for this is that bubble sort has O(N^2) time complexity
+       so it is ver inefficient for larger arrays.
+    2. according to a stackoverflow post: it's pattern of swapping is probably going
+       to be more random than selection sort and insertion sort so it will in turn,
+       be slower. 
+    3. each time bubble sort is used, it uses an excessive number of swaps which will
+       take up more resources and be slower than insertion and/or selection sort. So,
+       even if the element is in the correct position, it will still swap it around
+       until the whole thing is sorted.
+
+2. 
+
+an optimized insertion sort is faster than selection sort becasue of the fact that: it
+has fewer comparisons to selection sort, it can run with an O(n) time complexity, and 
+it is more cache friendly because it operates on adjacent elements which can be faster
+
+    1. insertion sort stops comparing once an element is in its correct position, while
+       selection sort always scans the entire unsorted position.
+    2. insertion sort uses linear time when the input is already nearly sorted, while 
+       selection sort is always O(N^2) which is objectively worse
+    3. insertion has a better locality of reference because, as said before, it oeprates
+       on adjacent elements, which makes it more cache efficient
+
+3. 
+
+the property that is needed for a custom class for it to be usable in an array with the three
+sort methods I implimented would be: a strict weak ordering that defines a total order.
+
+i would need to have consistency for the custom class. For example: if a < b is true, then b < a has to be false.
+i would also need transivity so if a < b and b < c then a < c must be true logically.
+lastly, i would need comparibility. So an ytwo elements must be comparable. 
+
+after much research into what this question means, I could that having the custom class posses strict
+weak ordering allows for the sorting algorithms to exist simultaneously. 
+
+4. 
+std::sort is faster primarily because it uses a much smarter, built in sort that is just intrisically better than what we used for this assignment. 
+while our sorts use a simple method that gets drastically slower on large lists, std::sort combines several advanced techniques to stay efficient. 
+it switches between different strategies to handle any kind of data quickly which is a fundamental upgrade in its approach, plus heavy optimization.
+
+according to a post on stack overflow: std::sort is fast but std::qsort can be faster depending on what is cached at the time of compiling the code.
+a lot of interesting things to consider in the standard library when it comes to all the sorting algorithms. 
