@@ -61,34 +61,79 @@ namespace csi281 {
     // associated value to *value*
     // If the load factor exceeds the MAX_LOAD_FACTOR
     // then resize the table
-    // TIP: Be careful to get a reference to the list at each
-    // location in the backing store, so you're modifying
-    // the original and not a copy
+
     void put(const K key, const V value) {
-      // YOUR CODE HERE
-    }
+
+      if (((float)(count + 1) / (float)capacity) > MAX_LOAD_FACTOR) {
+        resize(capacity * growthFactor);
+      }
+
+     size_t index = hashKey(key) % capacity;
+     auto &bucket = backingStore[index];
+
+     // search for the key in the bucket
+     for (auto &p : bucket) {
+        
+        if (p.first == key) {
+          
+          p.second = value; // update existing value
+          return;
+        }
+     }
+
+     // not found - insert new key-value pair
+     bucket.emplace_back(key, value);
+     count++;
+    
+  }
+
 
     // Get the item associated with a particular key
     // return an empty optional (nullopt) if the item is not found
     // and returns an optional with the value associated with key
     // if key is found
-    // TIP: read the documentation on optional
-    // https://en.cppreference.com/w/cpp/utility/optional
-    // TIP: Be careful to get a reference to the list at each
-    // location in the backing store, so you're modifying
-    // the original and not a copy
+
     optional<V> get(const K &key) {
-      // YOUR CODE HERE
+      if (capacity == 0 || backingStore == nullptr) {
+        return nullopt;
+      }
+      
+      size_t index = hashKey(key) % capacity;
+      auto &bucket = backingStore[index];
+      
+      for (auto & p : bucket) {
+        if (p.first == key) {
+          return optional<V>(p.second);
+        }
+      }
+
+      return nullopt;
     }
 
     // Remove a key and any associated value from the hash table
-    // TIP: I suggest using remove_if()
-    // https://en.cppreference.com/w/cpp/algorithm/remove
-    // TIP: Be careful to get a reference to the list at each
-    // location in the backing store, so you're modifying
-    // the original and not a copy
+
     void remove(const K &key) {
-      // YOUR CODE HERE
+
+      if (capacity == 0 || backingStore == nullptr) {
+        return;
+      }
+
+      size_t index = hashKey(key) % capacity;
+      auto &bucket = backingStore[index];
+
+      for (auto it = bucket.begin(); it != bucket.end(); ) {
+        if (it->first == key) {
+          it = bucket.erase(it);
+          // decrement count once per erased element
+          count--;
+        } else {
+          ++it;
+        }
+      }
+
+      if (count < 0) {
+        count = 0;
+      }
     }
 
     // Calculate and return the load factor
@@ -122,7 +167,29 @@ namespace csi281 {
     // new backing store of size cap, or create
     // the backingStore for the first time
     void resize(int cap) {
-      // YOUR CODE HERE
+
+      if (cap < 1) {
+        cap = 1; 
+      }
+
+      list<pair<K, V>> *newStore = new list<pair<K, V>>[cap];
+    
+      if (backingStore != nullptr && capacity > 0) {
+        
+        for (int i = 0; i < capacity; i++) {
+          
+          for (auto &p : backingStore[i]) {
+            
+            size_t newIndex = hashKey(p.first) % cap;
+            newStore[newIndex].emplace_back(p.first, p.second);
+          }
+        }
+
+        delete[] backingStore; 
+      }
+
+      backingStore = newStore;
+      capacity = cap;
     }
 
     // hash anything into an integer appropriate for

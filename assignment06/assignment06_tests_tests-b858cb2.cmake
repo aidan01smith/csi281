@@ -1,0 +1,7 @@
+add_test( [==[[stringint] Hash Table w/ string int]==] /home/susan/Documents/csi281/assignment06/assignment06_tests [==[--test-case=[stringint] Hash Table w/ string int]==])
+set_tests_properties( [==[[stringint] Hash Table w/ string int]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment06 LABELS)
+add_test( [==[[stringstring] Hash Table w/ string string]==] /home/susan/Documents/csi281/assignment06/assignment06_tests [==[--test-case=[stringstring] Hash Table w/ string string]==])
+set_tests_properties( [==[[stringstring] Hash Table w/ string string]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment06 LABELS)
+add_test( [==[[intfloat] Hash Table w/ int float]==] /home/susan/Documents/csi281/assignment06/assignment06_tests [==[--test-case=[intfloat] Hash Table w/ int float]==])
+set_tests_properties( [==[[intfloat] Hash Table w/ int float]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment06 LABELS)
+set( assignment06_tests_TESTS [==[[stringint] Hash Table w/ string int]==] [==[[stringstring] Hash Table w/ string string]==] [==[[intfloat] Hash Table w/ int float]==])
