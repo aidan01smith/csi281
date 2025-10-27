@@ -31,6 +31,11 @@
 using namespace std;
 #include "MemoryLeakDetector.h"
 
+#include "Stack.h"
+#include "Queue.h"
+
 int main(int argc, char* argv[]) {
   // create your small scoped tests here if you want
+  
+
 }

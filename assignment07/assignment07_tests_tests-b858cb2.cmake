@@ -1,0 +1,5 @@
+add_test( [==[[queue] Queue Tests]==] /home/susan/Documents/csi281/assignment07/assignment07_tests [==[--test-case=[queue] Queue Tests]==])
+set_tests_properties( [==[[queue] Queue Tests]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment07 LABELS)
+add_test( [==[[stack] Stack Tests]==] /home/susan/Documents/csi281/assignment07/assignment07_tests [==[--test-case=[stack] Stack Tests]==])
+set_tests_properties( [==[[stack] Stack Tests]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment07 LABELS)
+set( assignment07_tests_TESTS [==[[queue] Queue Tests]==] [==[[stack] Stack Tests]==])

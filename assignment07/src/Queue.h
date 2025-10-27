@@ -26,10 +26,14 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //  OTHER DEALINGS IN THE SOFTWARE.
 
+
+// first in first out
 #ifndef queue_hpp
 #define queue_hpp
 
 #include "SequentialCollection.h"
+
+#include <cassert>
 
 using namespace std;
 
@@ -37,6 +41,30 @@ namespace csi281 {
   template <typename T> class Queue : public SequentialCollection<T> {
   public:
     // YOUR CODE HERE
+    Queue() = default;
+    ~Queue() = default;
+
+    T pop() {
+
+      assert(backingStore.size() > 0);
+      T front = backingStore.front();
+      backingStore.pop_front();
+      
+      return front;
+    }
+
+    T &peek() {
+
+      assert(backingStore.size() > 0);
+      
+      return backingStore.front();
+    }
+
+    void push(const T &item) {
+
+      backingStore.push_back(item);
+    }
+
   protected:
     using SequentialCollection<T>::backingStore;
   };

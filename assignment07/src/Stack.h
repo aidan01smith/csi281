@@ -26,10 +26,13 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //  OTHER DEALINGS IN THE SOFTWARE.
 
+
+// last in fist out
 #ifndef stack_hpp
 #define stack_hpp
 
 #include "SequentialCollection.h"
+#include <cassert>
 
 using namespace std;
 
@@ -37,6 +40,32 @@ namespace csi281 {
   template <typename T> class Stack : public SequentialCollection<T> {
   public:
     // YOUR CODE HERE
+
+    Stack() = default;
+    ~Stack() = default; 
+
+    void push(const T &item) {
+
+      backingStore.push_back(item);
+    }
+
+    T &peek() {
+      assert(backingStore.size() > 0);
+      
+      return backingStore.back();
+    }
+
+    T pop() {
+     
+      int c = backingStore.size() > 0;
+      assert(c > 0);
+      
+      T top = backingStore.back();
+      backingStore.pop_back();
+      
+      return top;
+    }
+
   protected:
     using SequentialCollection<T>::backingStore;
   };

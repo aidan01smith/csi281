@@ -46,7 +46,19 @@ TEST_CASE("Queue Tests", "[queue]") {
     // Ensure that push(), pop(), and peek()
     // work properly in concert with getCount()
     // and remove()
-    // YOUR CODE HERE
+
+    q1.push(1);
+    q1.push(2);
+    q1.push(3);
+    CHECK(q1.getCount() == 3);
+    CHECK(q1.peek() == 1);
+    CHECK(q1.pop() == 1);
+    CHECK(q1.getCount() == 2);
+    q1.remove(2);
+    CHECK(q1.getCount() == 1);
+    CHECK(q1.peek() == 3);
+    CHECK(q1.pop() == 3);
+    CHECK(q1.getCount() == 0);   
   }
 
   SECTION("Queue w/ string tests") {
@@ -54,7 +66,19 @@ TEST_CASE("Queue Tests", "[queue]") {
     // Ensure that push(), pop(), and peek()
     // work properly in concert with getCount()
     // and remove()
-    // YOUR CODE HERE
+    
+    q2.push("apple");
+    q2.push("banana");
+    q2.push("cherry");
+    CHECK(q2.getCount() == 3);
+    CHECK(q2.peek() == "apple");
+    CHECK(q2.pop() == "apple");
+    CHECK(q2.getCount() == 2);
+    q2.remove("banana");
+    CHECK(q2.getCount() == 1);
+    CHECK(q2.peek() == "cherry");
+    CHECK(q2.pop() == "cherry");
+    CHECK(q2.getCount() == 0);
   }
 }
 
@@ -64,7 +88,19 @@ TEST_CASE("Stack Tests", "[stack]") {
     // Ensure that push(), pop(), and peek()
     // work properly in concert with getCount()
     // and remove()
-    // YOUR CODE HERE
+
+    s1.push(10);
+    s1.push(20);
+    s1.push(30);
+    CHECK(s1.getCount() == 3);
+    CHECK(s1.peek() == 30);
+    CHECK(s1.pop() == 30);
+    CHECK(s1.getCount() == 2);
+    s1.remove(10);
+    CHECK(s1.getCount() == 1);
+    CHECK(s1.peek() == 20);
+    CHECK(s1.pop() == 20);
+    CHECK(s1.getCount() == 0);
   }
 
   SECTION("Stack w/ string tests") {
@@ -72,6 +108,18 @@ TEST_CASE("Stack Tests", "[stack]") {
     // Ensure that push(), pop(), and peek()
     // work properly in concert with getCount()
     // and remove()
-    // YOUR CODE HERE
+
+    s2.push("dog");
+    s2.push("cat");
+    s2.push("mouse");
+    CHECK(s2.getCount() == 3);
+    CHECK(s2.peek() == "mouse");
+    CHECK(s2.pop() == "mouse");
+    CHECK(s2.getCount() == 2);
+    s2.remove("dog");
+    CHECK(s2.getCount() == 1);
+    CHECK(s2.peek() == "cat");
+    CHECK(s2.pop() == "cat");
+    CHECK(s2.getCount() == 0);
   }
 }
