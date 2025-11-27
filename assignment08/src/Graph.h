@@ -36,6 +36,7 @@
 #include <stack>
 #include <unordered_map>
 #include <unordered_set>
+#include <cassert>
 
 #include "MemoryLeakDetector.h"
 
@@ -74,24 +75,36 @@ namespace csi281 {
     // Determines whether there is an edge between *from* and *to*
     // if either is not in the graph, return false
     bool edgeExists(const V &from, const V &to) {
-      // YOUR CODE HERE
+    if (adjacencyList.find(from) == adjacencyList.end()) {
+        
+      return false;
+    }
+      
+      if (adjacencyList.find(to) == adjacencyList.end()) {
+        
+        return false;
+      }
+      
+      return adjacencyList[from].find(to) != adjacencyList[from].end();
     }
 
     using Path = list<V>;
     // Figure out a path from a goal node back to
     // a start node using a map keeping track of each node and the
     // node that got to it (your explored map)
-    Path pathMapToPath(unordered_map<V, V> &previousMap, V &goal) {
-      Path path = Path();
-      V *current, *previous = nullptr;
-      current = &goal;
-      do {
-        path.push_front(*current);
-        previous = current;
-        current = &previousMap[*current];
-      } while (*current != *previous);
-      return path;
+    Path pathMapToPath(const unordered_map<V, V> &previousMap, const V &goal) {
+      Path path;
+      V current = goal;
+  
+      while (previousMap.find(current) != previousMap.end()) {
+        path.push_front(current);
+        V next = previousMap.at(current);
+        if (next == current) break;  // reached start (parent points to itself)
+        current = next;
     }
+  
+    return path;
+  }
 
     // Perform a depth-first search from *start*, looking for *goal*
     // Return a path if one is found using pathMathToPath (with explored)
@@ -100,12 +113,33 @@ namespace csi281 {
       // how did we get to each node, and which ones have already been visited (dual purpose)
       unordered_map<V, V> explored = unordered_map<V, V>();
       // the start node came from nowhere, so we mark its parent as itself
+      stack<V> frontier = stack<V>();
+      
+      frontier.push(start);
       explored[start] = start;
+      
+      while (!frontier.empty()) {
+        
+        V current = frontier.top();
+        frontier.pop();
 
-      // YOUR CODE HERE
-      // TIP: Start by defining a frontier and putting start onto it.
-      // TIP: Follow the pseudocode from the slides from class
-    }
+        if (current == goal) {
+          
+          return pathMapToPath(explored, goal);
+        }
+
+        for (const V &neighbor : neighbors(current)) {
+          if (explored.find(neighbor) == explored.end()) {
+            
+            explored[neighbor] = current;
+            frontier.push(neighbor);
+          }
+        }
+      }
+      
+      return nullopt;
+
+  }
 
     // Perform a breadth-first search from *start*, looking for *goal*
     // Return a path if one is found using pathMathToPath (with explored)
@@ -113,14 +147,34 @@ namespace csi281 {
     optional<Path> bfs(const V &start, const V &goal) {
       // how did we get to each node, and which ones have already been visited (dual purpose)
       unordered_map<V, V> explored = unordered_map<V, V>();
+      queue<V> frontier = queue<V>();
       // the start node came from nowhere, so we mark its parent as itself
       explored[start] = start;
 
-      // YOUR CODE HERE
-      // TIP: Start by defining a frontier and putting start onto it.
-      // TIP: Follow the pseudocode from the slides from class
-      // TIP: This should be very similar to dfs
+      frontier.push(start);
+      
+      
+      while (!frontier.empty()) {
+        
+        V current = frontier.front();
+        frontier.pop();
+
+        if (current == goal) {
+          
+          return pathMapToPath(explored, goal);
+        }
+
+        for (const V &neighbor : neighbors(current)) {  
+          if (explored.find(neighbor) == explored.end()) {
+            
+            explored[neighbor] = current;
+            frontier.push(neighbor);
+          }
+        }
+      }
+      return nullopt;
     }
+    
 
     // Utility function if you need it
     void printExplored(unordered_map<V, V> um) {

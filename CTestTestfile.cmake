@@ -7,4 +7,4 @@
 subdirs("_deps/doctest-build")
 subdirs("_deps/format.cmake-build")
 subdirs("lib")
-subdirs("assignment07")
+subdirs("assignment08")

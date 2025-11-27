@@ -1,0 +1,7 @@
+add_test( [==[[graph] edgeExists() Tests]==] /home/susan/Documents/csi281/assignment08/assignment08_tests [==[--test-case=[graph] edgeExists() Tests]==])
+set_tests_properties( [==[[graph] edgeExists() Tests]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment08 LABELS)
+add_test( [==[[graph] dfs() Tests]==] /home/susan/Documents/csi281/assignment08/assignment08_tests [==[--test-case=[graph] dfs() Tests]==])
+set_tests_properties( [==[[graph] dfs() Tests]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment08 LABELS)
+add_test( [==[[graph] bfs() Tests]==] /home/susan/Documents/csi281/assignment08/assignment08_tests [==[--test-case=[graph] bfs() Tests]==])
+set_tests_properties( [==[[graph] bfs() Tests]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment08 LABELS)
+set( assignment08_tests_TESTS [==[[graph] edgeExists() Tests]==] [==[[graph] dfs() Tests]==] [==[[graph] bfs() Tests]==])

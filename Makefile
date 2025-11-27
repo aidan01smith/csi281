@@ -315,30 +315,30 @@ plotsvg/fast:
 .PHONY : plotsvg/fast
 
 #=============================================================================
-# Target rules for targets named assignment07
+# Target rules for targets named assignment08
 
 # Build rule for target.
-assignment07: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment07
-.PHONY : assignment07
+assignment08: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment08
+.PHONY : assignment08
 
 # fast build rule for target.
-assignment07/fast:
-	$(MAKE) $(MAKESILENT) -f assignment07/CMakeFiles/assignment07.dir/build.make assignment07/CMakeFiles/assignment07.dir/build
-.PHONY : assignment07/fast
+assignment08/fast:
+	$(MAKE) $(MAKESILENT) -f assignment08/CMakeFiles/assignment08.dir/build.make assignment08/CMakeFiles/assignment08.dir/build
+.PHONY : assignment08/fast
 
 #=============================================================================
-# Target rules for targets named assignment07_tests
+# Target rules for targets named assignment08_tests
 
 # Build rule for target.
-assignment07_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment07_tests
-.PHONY : assignment07_tests
+assignment08_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment08_tests
+.PHONY : assignment08_tests
 
 # fast build rule for target.
-assignment07_tests/fast:
-	$(MAKE) $(MAKESILENT) -f assignment07/CMakeFiles/assignment07_tests.dir/build.make assignment07/CMakeFiles/assignment07_tests.dir/build
-.PHONY : assignment07_tests/fast
+assignment08_tests/fast:
+	$(MAKE) $(MAKESILENT) -f assignment08/CMakeFiles/assignment08_tests.dir/build.make assignment08/CMakeFiles/assignment08_tests.dir/build
+.PHONY : assignment08_tests/fast
 
 # Help Target
 help:
@@ -362,8 +362,8 @@ help:
 	@echo "... fix-cmake-format"
 	@echo "... fix-format"
 	@echo "... format"
-	@echo "... assignment07"
-	@echo "... assignment07_tests"
+	@echo "... assignment08"
+	@echo "... assignment08_tests"
 	@echo "... doctest_with_main"
 	@echo "... plotsvg"
 .PHONY : help
