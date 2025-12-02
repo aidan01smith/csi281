@@ -126,20 +126,25 @@ namespace csi281 {
           = priority_queue<pair<W, V>, vector<pair<W, V>>, greater<pair<W, V>>>();
       frontier.push(make_pair(0, start));
 
-      // YOUR CODE HERE
-      // NOTE: You must use the constructs defined at
-      // the beginning of this method in your code.
-      // NOTE: Because the majority of the grade is based on the
-      // few (10-15) lines of code you need to write here, unlike
-      // previous assignments, I will not help you write it.
-      // However, of course I am happy to answer any of your
-      // conceptual questions around Dijkstra's algorithm
-      // or specific questions about C++ or how the
-      // WeightedGraph class works. Remember, you have pseudocode
-      // from class, from your book, and you are free to
-      // use other pseudocode as long as you cite it. Please
-      // do not look at other C++ solutions.
+      while (!frontier.empty()){
 
+        auto [currentWeight, currentVertex] = frontier.top();
+        frontier.pop();
+
+        for (const auto& [neighbor, edgeWeight] : adjacencyList[currentVertex]) {
+          W newWeight = currentWeight + edgeWeight;
+          // if we haven't seen this neighbor yet, or we found a better weight
+          if (weights.find(neighbor) == weights.end() || newWeight < weights[neighbor]) {
+            
+            // update shortest weight and parent
+            weights[neighbor] = newWeight;
+            // record the path
+            parents[neighbor] = currentVertex;
+            // add the neighbor to the frontier 
+            frontier.push(make_pair(newWeight, neighbor));
+          }
+        }
+      }
       return make_pair(parents, weights);
     }
 

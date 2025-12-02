@@ -1,0 +1,5 @@
+add_test( [==[[dijksta] dijkstra() cityGraph1 Test]==] /home/susan/Documents/csi281/assignment09/assignment09_tests [==[--test-case=[dijksta] dijkstra() cityGraph1 Test]==])
+set_tests_properties( [==[[dijksta] dijkstra() cityGraph1 Test]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment09 LABELS)
+add_test( [==[[dijksta] dijkstra() cityGraph2 Test]==] /home/susan/Documents/csi281/assignment09/assignment09_tests [==[--test-case=[dijksta] dijkstra() cityGraph2 Test]==])
+set_tests_properties( [==[[dijksta] dijkstra() cityGraph2 Test]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment09 LABELS)
+set( assignment09_tests_TESTS [==[[dijksta] dijkstra() cityGraph1 Test]==] [==[[dijksta] dijkstra() cityGraph2 Test]==])
