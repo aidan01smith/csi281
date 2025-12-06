@@ -1,0 +1,5 @@
+add_test( [==[[mst] mst() cityGraph1 Test]==] /home/susan/Documents/csi281/assignment10/assignment10_tests [==[--test-case=[mst] mst() cityGraph1 Test]==])
+set_tests_properties( [==[[mst] mst() cityGraph1 Test]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment10 LABELS)
+add_test( [==[[mst] mst() cityGraph2 Test]==] /home/susan/Documents/csi281/assignment10/assignment10_tests [==[--test-case=[mst] mst() cityGraph2 Test]==])
+set_tests_properties( [==[[mst] mst() cityGraph2 Test]==] PROPERTIES WORKING_DIRECTORY /home/susan/Documents/csi281/assignment10 LABELS)
+set( assignment10_tests_TESTS [==[[mst] mst() cityGraph1 Test]==] [==[[mst] mst() cityGraph2 Test]==])
