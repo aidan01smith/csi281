@@ -58,7 +58,10 @@ namespace csi281 {
     // for HEAP-MAXIMUM()
     // NOTE: Our heap starts at 0, not 1
     T peek() {
-      // YOUR CODE HERE
+      if (heapSize <= 0) {
+        throw runtime_error("peek() called on empty PriorityQueue");
+      }
+      return heap[0];
     }
 
     // Remove the next element (max element) in the heap and return it
@@ -68,7 +71,27 @@ namespace csi281 {
     // NOTE: Do not worry about contracting the size of the backing vector
     // after a pop.
     T pop() {
-      // YOUR CODE HERE
+
+      if (heapSize <= 0) {
+        throw runtime_error("pop() called on empty PriorityQueue");
+      }
+
+      // Get max value (root)
+      T maxVal = heap[0];
+
+      // Move last element to root, shrink heap, and heapify
+      if (heapSize == 1) {
+        heap.pop_back();
+        heapSize = 0;
+        return maxVal;
+      }
+
+      heap[0] = heap[heapSize - 1];
+      heap.pop_back();
+      --heapSize;
+      maxHeapify(0);
+
+      return maxVal;
     }
 
     // Put a new element into the priority queue
@@ -80,7 +103,17 @@ namespace csi281 {
     // NOTE: our last element is at heapSize after being push_back()ed onto
     // the end of the vector heap
     void push(T key) {
-      // YOUR CODE HERE
+
+      // Add the new key at the end and float it up to maintain max-heap
+      heap.push_back(key);
+      int i = heapSize; // index of newly inserted element
+      ++heapSize;
+
+      // Float up while parent is less than current
+      while (i > 0 && heap[parent(i)] < heap[i]) {
+        swap(heap[i], heap[parent(i)]);
+        i = parent(i);
+      }
     }
 
     // How many items are in the priority queue?
@@ -99,7 +132,22 @@ namespace csi281 {
     // TIP: See pseudocode in Introduction to Algorithm Chapter 6 page 154
     // NOTE: Macros left() and right() are defined at the top of this file
     void maxHeapify(int i) {
-      // YOUR CODE HERE
+
+      int l = left(i);
+      int r = right(i);
+      int largest = i;
+
+      if (l < heapSize && heap[l] > heap[largest]) {
+        largest = l;
+      }
+      if (r < heapSize && heap[r] > heap[largest]) {
+        largest = r;
+      }
+
+      if (largest != i) {
+        swap(heap[i], heap[largest]);
+        maxHeapify(largest);
+      }
     }
 
     vector<T> heap;
