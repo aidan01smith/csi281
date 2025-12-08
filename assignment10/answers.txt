@@ -1,0 +1,72 @@
+Aidan
+
+1) How can Jarnik's algorithm be re-configured to find the maximum-spanning-tree instead of the minimum-spanning-tree?
+
+Jarnik's algorithm (commonly called Prim's algorithm) can produce a maximum-spanning tree by changing the 
+selection rule so that, at each step, it chooses the largest-weight edge that connects the already-chosen vertices to a 
+not-yet-chosen vertex. In other terms, replace the minimum priority queue with a max-priority queue, or insert 
+negated weights into a standard min-heap. The algorithm's structure and correctness reasoning remain the same.
+
+Sources:
+- https://en.wikipedia.org/wiki/Prim%27s_algorithm
+- https://www.geeksforgeeks.org/maximum-spanning-tree-using-prim-algorithm/
+
+2) How is a minimum-spanning-tree different from a solution to the Traveling Salesman problem?
+
+A minimum-spanning-tree connects all points in a network using the least total distance, allowing branches in any direction without forming loops, 
+like wiring houses with minimal cable. The Traveling Salesman Problem requires visiting every point exactly once and returning to the start in a single loop, 
+finding the shortest possible round trip. Minimum-spanning-trees can be solved quickly by computers, while the Traveling Salesman 
+Problem is vastly harder and becomes impractical to solve perfectly as the number of points grows.
+
+Sources:
+- https://en.wikipedia.org/wiki/Minimum_spanning_tree
+- https://en.wikipedia.org/wiki/Travelling_salesman_problem
+
+3) Adjacency matrix for five vertices from `cityGraph2` (from `assignment09/src/test.cpp`)
+
+Vertices order used: Seattle, San_Francisco, Los_Angeles, Riverside, Phoenix
+
+	    Seattle  San_Francisco  Los_Angeles  Riverside  Phoenix
+Seattle        0         678           INF         INF      INF
+San_Franc      678        0            348         386      INF
+Los_Ang        INF        348           0           50      357
+Riverside      INF        386           50          0       307
+Phoenix        INF        INF           357         307      0
+
+
+4) Big-O time complexity of Jarnik's algorithm (Prim's)
+
+When a binary heap (min-priority queue) is used, Prim's algorithm runs in O(E log V) time (more precisely O((V + E) log V), 
+which for connected graphs is dominated by O(E log V)). If no priority queue is used and you select the next vertex by scanning 
+an array of candidate weights, the running time becomes O(V^2). The difference comes from the cost of selecting and updating the
+next vertex: a heap provides extract-min and decrease-key operations in O(log V), while scanning an array costs O(V) per selection,
+producing the quadratic bound on dense graphs.
+
+Sources:
+- https://en.wikipedia.org/wiki/Prim%27s_algorithm (complexity section)
+- Cormen, Leiserson, Rivest, Stein — Introduction to Algorithms
+
+5) Why is Jarnik's algorithm a greedy algorithm?
+
+Jarnik's algorithm is greedy because it repeatedly makes the locally optimal choice: 
+at each step it picks the smallest-weight edge that connects the current tree to some vertex outside the tree.
+It never revises earlier choices. This local decision rule leads to a globally optimal minimum spanning tree 
+because of the cut property for MSTs (any minimum-weight edge crossing a cut belongs to some MST), which justifies 
+the greedy step.
+
+Source:
+- https://en.wikipedia.org/wiki/Prim%27s_algorithm
+
+6) Another algorithm with a different common name than its original discoverer
+
+The Fast Fourier Transform is commonly credited to Cooley and Tukey, who published their version in 1965, 
+but Carl Friedrich Gauss actually described a very similar method back around 1805. The algorithm's purpose is to 
+quickly break down complex signals into their component frequencies, which is useful in everything from audio processing 
+to image compression. Gauss's early work went largely unnoticed because it wasn't widely shared and computers didn't exist 
+yet to make use of it, so when Cooley and Tukey rediscovered and published the technique, their names became attached to it instead.
+
+Sources:
+- https://en.wikipedia.org/wiki/Fast_Fourier_transform
+- https://en.wikipedia.org/wiki/Fast_Fourier_transform#History
+
+If you'd like further tweaks — for example converting the adjacency matrix to CSV, changing the name at the top, or selecting a different set of vertices for question 3 — tell me which and I'll update the file.
